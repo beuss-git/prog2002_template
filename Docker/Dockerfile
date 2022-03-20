@@ -34,7 +34,7 @@ WORKDIR /src/renderdoc
 RUN git checkout v1.18 && mkdir -p /src/renderdoc/build
 
 WORKDIR /src/renderdoc/build
-RUN cmake ../ && make -j4
+RUN cmake ../ && make -j4 && make install
 
 
 # Clone and build the test framework (graphics implementation)
