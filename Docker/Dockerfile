@@ -47,6 +47,9 @@ run git submodule update --init --recursive && mkdir -p /src/test/build
 WORKDIR /src/test/build
 run cmake ../ && make -j4
 
+# Quick access to ctest
+WORKDIR /src/test/build/tests
+
 # Export and enable xvfb display
 COPY init_xvfb.sh /src/init_xvfb.sh
 run chmod +x /src/init_xvfb.sh
