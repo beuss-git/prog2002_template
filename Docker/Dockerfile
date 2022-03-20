@@ -47,10 +47,6 @@ run git submodule update --init --recursive && mkdir -p /src/test/build
 WORKDIR /src/test/build
 run cmake ../ && make -j4
 
-# Clone and build the tester (python code)
-WORKDIR /src
-run git clone https://github.com/beuss-git/prog2002_renderdoc_tester tester
-
 # Export and enable xvfb display
 run chmod +x /src/tester/init_xvfb.sh
 ARG RESOLUTION="1024x1024x24"
