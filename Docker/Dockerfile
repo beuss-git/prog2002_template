@@ -48,10 +48,11 @@ WORKDIR /src/test/build
 run cmake ../ && make -j4
 
 # Export and enable xvfb display
-run chmod +x /src/tester/init_xvfb.sh
+COPY init_xvfb.sh /src/init_xvfb.sh
+run chmod +x /src/init_xvfb.sh
 ARG RESOLUTION="1024x1024x24"
 ENV XVFB_RES="${RESOLUTION}"
 ARG XARGS=""
 ENV XVFB_ARGS="${XARGS}"
 ENV DISPLAY=":99"
-ENTRYPOINT ["/bin/sh", "/src/tester/init_xvfb.sh"]
+ENTRYPOINT ["/bin/sh", "/src/init_xvfb.sh"]
