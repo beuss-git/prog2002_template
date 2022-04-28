@@ -1,7 +1,6 @@
 #pragma once
 #include <graphics_framework.hpp>
 
-
 class LabXX final : public GraphicsFramework {
 public:
 	LabXX(int argc, char* argv[])
