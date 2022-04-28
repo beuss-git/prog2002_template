@@ -16,6 +16,9 @@ add_subdirectory(external/tclap)
 set(TCLAP_INCLUDE_PATH "${CMAKE_CURRENT_LIST_DIR}/external/tclap/include")
 find_package(TCLAP REQUIRED)
 
+# Add example lab
+add_subdirectory(Labs/LabXX)
+
 # Add Lab 00
 add_subdirectory(Labs/Lab00)
 
