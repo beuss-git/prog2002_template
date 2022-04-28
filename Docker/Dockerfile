@@ -34,7 +34,7 @@ WORKDIR /src/renderdoc
 RUN git checkout v1.18 && mkdir -p /src/renderdoc/build
 
 WORKDIR /src/renderdoc/build
-RUN cmake ../ && make -j32 && make install
+RUN cmake ../ && make -j8 && make install
 
 
 WORKDIR /src
@@ -44,7 +44,7 @@ WORKDIR /src/template
 RUN git submodule update --init --recursive && mkdir -p /src/template/build
 
 WORKDIR /src/template/build
-RUN cmake ../ && make -j32
+RUN cmake ../ && make -j8
 
 
 WORKDIR /src
