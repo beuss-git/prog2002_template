@@ -34,24 +34,23 @@ WORKDIR /src/renderdoc
 RUN git checkout v1.18 && mkdir -p /src/renderdoc/build
 
 WORKDIR /src/renderdoc/build
-RUN cmake ../ && make -j4 && make install
+RUN cmake ../ && make -j32 && make install
 
 
-# Clone and build the test framework (graphics implementation)
 WORKDIR /src
-RUN git clone https://github.com/beuss-git/prog2002_test_poc test
+RUN mkdir -p /src/template/
+ADD ./ /src/template/
+WORKDIR /src/template
+RUN git submodule update --init --recursive && mkdir -p /src/template/build
 
-WORKDIR /src/test
-RUN git submodule update --init --recursive && mkdir -p /src/test/build
+WORKDIR /src/template/build
+RUN cmake ../ && make -j32
 
-WORKDIR /src/test/build
-RUN cmake ../ && make -j4
 
-# Quick access to ctest
-WORKDIR /src/test/build/tests
+WORKDIR /src
 
 # Export and enable xvfb display
-COPY init_xvfb.sh /src/init_xvfb.sh
+COPY Docker/init_xvfb.sh /src/init_xvfb.sh
 RUN chmod +x /src/init_xvfb.sh
 ARG RESOLUTION="1024x1024x24"
 ENV XVFB_RES="${RESOLUTION}"
@@ -59,3 +58,6 @@ ARG XARGS=""
 ENV XVFB_ARGS="${XARGS}"
 ENV DISPLAY=":99"
 ENTRYPOINT ["/bin/sh", "/src/init_xvfb.sh"]
+
+# Quick access to ctest
+WORKDIR /src/template/build/external/tester
