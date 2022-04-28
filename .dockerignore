@@ -1,0 +1,11 @@
+# External libs
+#external/
+
+# Intellij
+.idea/
+cmake-build-*/
+
+# Visual Studio
+.vs/
+ipch/
+out/
