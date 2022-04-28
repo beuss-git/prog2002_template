@@ -1,3 +1,6 @@
+# External libs
+external/
+
 # Intellij
 .idea/
 cmake-build-*/
