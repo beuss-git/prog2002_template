@@ -6,4 +6,4 @@
 	url = https://github.com/glfw/glfw.git
 [submodule "tester"]
 	path = external/tester
-	url = https://github.com/beuss-git/prog2002_test_poc.git
+	url = https://git.gvk.idi.ntnu.no/course/prog2002/continuous-integration/testing.git
