@@ -39,20 +39,20 @@ RUN cmake ../ && make -j4 && make install
 
 # Clone and build the test framework (graphics implementation)
 WORKDIR /src
-run git clone https://github.com/beuss-git/prog2002_test_poc test
+RUN git clone https://github.com/beuss-git/prog2002_test_poc test
 
 WORKDIR /src/test
-run git submodule update --init --recursive && mkdir -p /src/test/build
+RUN git submodule update --init --recursive && mkdir -p /src/test/build
 
 WORKDIR /src/test/build
-run cmake ../ && make -j4
+RUN cmake ../ && make -j4
 
 # Quick access to ctest
 WORKDIR /src/test/build/tests
 
 # Export and enable xvfb display
 COPY init_xvfb.sh /src/init_xvfb.sh
-run chmod +x /src/init_xvfb.sh
+RUN chmod +x /src/init_xvfb.sh
 ARG RESOLUTION="1024x1024x24"
 ENV XVFB_RES="${RESOLUTION}"
 ARG XARGS=""
