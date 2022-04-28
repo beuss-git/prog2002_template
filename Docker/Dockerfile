@@ -34,7 +34,7 @@ WORKDIR /src/renderdoc
 RUN git checkout v1.18 && mkdir -p /src/renderdoc/build
 
 WORKDIR /src/renderdoc/build
-RUN cmake ../ && make -j8 && make install
+RUN cmake ../ -DENABLE_VULKAN=OFF -DENABLE_QRENDERDOC=OFF -DENABLEPYRENDERDOC=OFF && make -j8 && make install
 
 
 WORKDIR /src
