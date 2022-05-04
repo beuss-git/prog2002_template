@@ -14,7 +14,6 @@ cmake_policy(SET CMP0072 NEW)
 find_package(OpenGL REQUIRED)
 
 # Build the external dependencies
-add_subdirectory(external/tclap)
 add_subdirectory(external/glfw)
 add_subdirectory(external/glad)
 add_subdirectory(external/glm)
