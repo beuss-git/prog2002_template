@@ -36,6 +36,7 @@ RUN git checkout v1.18 && mkdir -p /src/renderdoc/build
 WORKDIR /src/renderdoc/build
 RUN cmake ../ -DENABLE_VULKAN=OFF -DENABLE_QRENDERDOC=OFF -DENABLEPYRENDERDOC=OFF && make -j8 && make install
 
+# NOTE: clone tester
 
 WORKDIR /src
 RUN mkdir -p /src/template/
