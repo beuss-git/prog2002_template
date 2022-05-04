@@ -13,6 +13,11 @@ cmake_policy(SET CMP0072 NEW)
 
 find_package(OpenGL REQUIRED)
 
+# Disable unnecessary glfw builds
+set(GLFW_BUILD_TESTS OFF)
+set(GLFW_BUILD_DOCS OFF)
+set(GLFW_BUILD_EXAMPLES OFF)
+
 # Build the external dependencies
 add_subdirectory(external/glfw)
 add_subdirectory(external/glad)
