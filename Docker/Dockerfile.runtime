@@ -1,0 +1,18 @@
+FROM turbocartpig/prog2002-builder:latest
+
+# Export and enable xvfb display
+COPY Docker/init_xvfb.sh /src/init_xvfb.sh
+RUN chmod +x /src/init_xvfb.sh
+
+ARG RESOLUTION="1024x1024x24"
+ARG XARGS=""
+
+ENV XVFB_RES="${RESOLUTION}"
+ENV XVFB_ARGS="${XARGS}"
+ENV DISPLAY=":99"
+
+# Quick access to ctest
+WORKDIR /src/template/build/external/tester
+
+# Run X server
+ENTRYPOINT ["/bin/sh", "/src/init_xvfb.sh"]
