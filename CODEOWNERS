@@ -1,0 +1,14 @@
+# Administrate code owners
+CODEOWNERS @rafaelp @denniskr @benjabj
+
+# Update CI config
+.gitlab-ci.yml @rafaelp @denniskr @benjabj
+
+# Change tester and external modules
+external/tester/ @rafaelp @denniskr @benjabj
+.gitmodules @rafaelp @denniskr @benjabj
+
+# TODO: Remove when docker stuff is removed
+# Change docker images
+Docker/ @rafaelp @denniskr @benjabj
+.dockerignore @rafaelp @denniskr @benjabj
