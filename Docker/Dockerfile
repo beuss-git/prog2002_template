@@ -1,4 +1,5 @@
 FROM debian:bullseye
+ARG cores
 
 RUN apt update && apt dist-upgrade -y
 
@@ -34,7 +35,7 @@ WORKDIR /src/renderdoc
 RUN git checkout v1.18 && mkdir -p /src/renderdoc/build
 
 WORKDIR /src/renderdoc/build
-RUN cmake ../ -DENABLE_VULKAN=OFF -DENABLE_QRENDERDOC=OFF -DENABLEPYRENDERDOC=OFF && make -j8 && make install
+RUN cmake ../ -DENABLE_VULKAN=OFF -DENABLE_QRENDERDOC=OFF -DENABLEPYRENDERDOC=OFF && make -j$cores && make install
 
 # NOTE: clone tester
 
@@ -45,7 +46,7 @@ WORKDIR /src/template
 RUN git submodule update --init --recursive && mkdir -p /src/template/build
 
 WORKDIR /src/template/build
-RUN cmake ../ && make -j8
+RUN cmake ../ && make -j$cores
 
 
 WORKDIR /src
