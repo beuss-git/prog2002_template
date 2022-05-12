@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
@@ -21,3 +22,13 @@ build:
   artifacts:
     paths:
       - build/
+
+test:
+  stage: test
+  image: turbocartpig/prog2002-runtime:latest
+  tags:
+    - docker
+    - prog2002
+  script:
+    - cd ./build/external/tester
+    - ctest
