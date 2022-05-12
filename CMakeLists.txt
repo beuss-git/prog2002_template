@@ -29,12 +29,6 @@ add_subdirectory(external/tester)
 set(TCLAP_INCLUDE_PATH "${CMAKE_CURRENT_LIST_DIR}/external/tclap/include")
 find_package(TCLAP REQUIRED)
 
-# Set TESTER_INCLUDE_DIR
-# Is there a better way to propagate this?
-set(TESTER_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/external/tester/include")
-set(GLFW_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/external/glfw/include")
-set(GLAD_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/external/glad/include")
-
 # Add example lab
 add_subdirectory(Labs/LabXX)
 
