@@ -12,4 +12,4 @@
 	url = https://github.com/g-truc/glm.git
 [submodule "tester"]
 	path = external/tester
-	url = ../continuous-integration/testing.git
+	url = ../testing.git
