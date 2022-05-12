@@ -12,4 +12,4 @@
 	url = https://github.com/g-truc/glm.git
 [submodule "tester"]
 	path = external/tester
-	url = https://git.gvk.idi.ntnu.no/course/prog2002/continuous-integration/testing.git
+	url = ../continuous-integration/testing.git
