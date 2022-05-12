@@ -12,4 +12,4 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 	${GLAD_INCLUDE_DIR}
 )
 
-target_link_libraries(${PROJECT_NAME} TESTER glfw glad glm OpenGL::GL)
+target_link_libraries(${PROJECT_NAME} tester glfw glad glm OpenGL::GL)
